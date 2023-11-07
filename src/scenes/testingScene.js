@@ -37,8 +37,8 @@ class testingScene extends Phaser.Scene {
          this.dynamicMap = this.make.tilemap(
             {
                 // data: this.levelData[this.levels[this.index]],
-                tileWidth: gameConfig.Tile_Size,
-                tileHeight: gameConfig.Tile_Size
+                tileWidth: 250,
+                tileHeight: 250
             });
 
         const tiles = this.dynamicMap.addTilesetImage('graph');
