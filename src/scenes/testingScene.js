@@ -52,9 +52,17 @@ class testingScene extends Phaser.Scene {
         this.layer3 = this.dynamicMap.createBlankLayer('layer3', tiles, 0, 0, 18, 18);
         this.layer3.putTilesAt(this.levelData[this.levels[this.index]][3], 0, 0);
 
+        this.layer4 = this.dynamicMap.createBlankLayer('layer4', tiles, 0, 0, 18, 18);
+        this.layer4.putTilesAt(this.levelData[this.levels[this.index]][4], 0, 0);
+
+        this.layer5 = this.dynamicMap.createBlankLayer('layer5', tiles, 0, 0, 18, 18);
+        this.layer5.putTilesAt(this.levelData[this.levels[this.index]][5], 0, 0);
+
+        this.layer6 = this.dynamicMap.createBlankLayer('layer6', tiles, 0, 0, 18, 18);
+        this.layer6.putTilesAt(this.levelData[this.levels[this.index]][6], 0, 0);
+
         this.layer2 = this.dynamicMap.createBlankLayer('layer2', tiles, 0, 0, 18, 18);
         this.layer2.putTilesAt(this.levelData[this.levels[this.index]][1], 0, 0);
-
 
         this.dynamicMap.setCollision([1]);
         
