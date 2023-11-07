@@ -14,10 +14,10 @@ class testingScene extends Phaser.Scene {
         //Load all minimaps
         this.levels = Object.keys(this.levelData);
         for (let x in this.levels){
-            this.load.image(this.levels[x],'assets/MiniMaps/' + this.levels[x] + '.jpg');
+            this.load.image(this.levels[x],'https://github.com/AnnEsther/dungeonPhaser3/blob/main/assets/MiniMaps/' + this.levels[x] + '.jpg?raw=true');
         }
         //Pre-load button
-        this.load.spritesheet('button', 'assets/button_sprite_sheet.png',
+        this.load.spritesheet('button', 'https://github.com/AnnEsther/dungeonPhaser3/blob/main/assets/button_sprite_sheet.png?raw=true',
          { frameWidth: 193, frameHeight: 71 }); //579x71
 
         
