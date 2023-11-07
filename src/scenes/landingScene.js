@@ -4,13 +4,13 @@ class landingScene extends Phaser.Scene {
         super('landingScene');
     }
     preload() {
-        this.load.image('logo', 'https://github.com/AnnEsther/dungeonPhaser3/blob/main/assets/logo.png?raw=true');
+        this.load.image('logo', '/assets/logo.png');
 
         //Pre-loading the map data
         this.load.json('mapData', '/assets/data/MapOutput18x18.json');
 
         //Pre-load the tiles
-        this.load.image('graph','https://github.com/AnnEsther/dungeonPhaser3/blob/main/assets/dungeonTiles.png?raw=true');
+        this.load.image('graph','/assets/dungeonTiles.png');
 
        }
     create() {
