@@ -115,4 +115,4 @@ class testingScene extends Phaser.Scene {
 
 }
 
-export default testingScene;
+//export default testingScene;
