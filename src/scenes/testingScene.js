@@ -71,8 +71,15 @@ class testingScene extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, this.layer0.width, this.layer0.height, true, true, true, true);
         this.cameras.main.setBounds(0, 0, this.layer0.width, this.layer0.height);
         
-        this.zoomOut = 13/100;
-        this.cameras.main.setZoom(this.zoomOut,this.zoomOut);
+        var tiledMap = 250 * 18;
+
+        var ratioW = tiledMap/(this.cameras.main.width * 60/100);
+        var ratioH = tiledMap/(this.cameras.main.height);
+
+        var r = ratioW > ratioH ? ratioW : ratioH;
+        r = 1/r;
+
+        this.cameras.main.setZoom(r,r);
 
         // this.nextButton = this.add.button(this.centerX - 95, 400, 'button', this.actionOnClick, this, 2, 1, 0);
 
@@ -80,8 +87,15 @@ class testingScene extends Phaser.Scene {
         // this.nextButton.onInputOut.add(out, this);
         // this.nextButton.onInputUp.add(up, this);
 
-        var camWidth = this.cameras.main.width * (1/this.zoomOut); 
-        var camHeight = this.cameras.main.height * (1/this.zoomOut); 
+
+        
+        var name = this.add.text((this.cameras.main.width * 1/r *80/100), 1000, 'LEVEL : ' +  this.levels[this.index], { fill: '#0f0' });
+        name.setScale(10);
+        name.setOrigin(0.5,0);
+
+        //console.log(this.levels[this.index]);
+        var mapImage = this.add.image((this.cameras.main.width * 1/r *80/100), 2000, this.levels[this.index]);
+        mapImage.setScale(2);
 
         this.nextButton = new BasicButton({
             'scene': this,
@@ -96,17 +110,8 @@ class testingScene extends Phaser.Scene {
         this.nextButton.setScale(this.nextBouttonScale);
         this.nextButton.on('pointerdown', this.actionOnClick, this);
 
-        this.nextButton.x = camWidth - (this.nextButton.width * this.nextBouttonScale);
-        this.nextButton.y = camHeight - (this.nextButton.height * this.nextBouttonScale);
-
-        var name = this.add.text(4800, 1000, 'LEVEL : ' +  this.levels[this.index], { fill: '#0f0' });
-        name.setScale(10);
-
-        //console.log(this.levels[this.index]);
-        var mapImage = this.add.image(5400, 2000, this.levels[this.index]);
-        mapImage.setScale(2);
-
-        // this.nextButton.setInteractive().on('pointerdown', () => this.updateClick(++this.index));
+        this.nextButton.x = (this.cameras.main.width * 1/r *80/100) ;//- (this.nextButton.width * this.nextBouttonScale);
+        this.nextButton.y = mapImage.y + mapImage.width + (this.nextButton.height * this.nextBouttonScale);
 
     }
 
